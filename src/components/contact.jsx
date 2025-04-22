@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div style={styles.pageContainer}>
       {/* Render the Header component */}
-      <Header />
+      <Header/>
 
       <div style={styles.mainContent}>
         <h2 style={styles.headerText}>Contact Us</h2>
