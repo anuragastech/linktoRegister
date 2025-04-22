@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <style>
@@ -53,29 +59,33 @@ const Header = () => {
             padding: 8px 15px;
           }
 
-          @media (max-width: 1024px) {
-            .header {
-              flex-direction: column;
-              padding: 18px 20px;
-            }
-
-            .logo-container {
-              justify-content: center;
-            }
-
-            .nav {
-              flex-direction: column;
-              gap: 15px;
-              margin-top: 10px;
-              align-items: center;
-            }
-
-            .link {
-              font-size: 18px;
-            }
+          .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
           }
 
           @media (max-width: 768px) {
+            .nav {
+              display: none;
+              flex-direction: column;
+              gap: 10px;
+              width: 100%;
+              background: #0047b3;
+              padding: 10px 20px;
+              margin-top: 10px;
+              border-radius: 8px;
+            }
+
+            .nav.open {
+              display: flex;
+            }
+
+            .menu-icon {
+              display: block;
+            }
+
             .logo-text {
               font-size: 20px;
             }
@@ -110,7 +120,12 @@ const Header = () => {
           />
           <span className="logo-text">Symphony Onchiyam</span>
         </div>
-        <nav className="nav">
+
+        <div className="menu-icon" onClick={toggleMenu}>
+          &#9776; {/* Hamburger icon */}
+        </div>
+
+        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <a href="/" className="link">Home</a>
           <a href="#" className="link">Details</a>
           <a href="#" className="link">Contact</a>
