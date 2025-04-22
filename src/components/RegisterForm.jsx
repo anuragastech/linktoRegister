@@ -57,8 +57,7 @@ const RegisterForm = () => {
   <h2 style={{ margin: 0, color: '#333' }}>Symphony Onchiyam 2025</h2>
 </div>
 <p id="details" style={{ marginBottom: 25, fontSize: 15, color: '#555' }}>
-  താഴെയിരിക്കുന്ന രജിസ്ട്രേഷൻ ഫോം പൂരിപ്പിച്ച് സിംഫണി കലാസാംസ്കാരിക വേദി നടത്തുന്ന ചിറകുകൾ ഏകദിന ക്യാമ്പിൽ പങ്കെടുക്കാം.
-</p>
+താഴെയിരിക്കുന്ന രജിസ്ട്രേഷൻ ഫോം പൂരിപ്പിച്ച് സിംഫണി ഒഞ്ചിയം നടത്തുന്ന "ചിറകുകൾ"- ഏകദിന ക്യാമ്പിൽ പങ്കെടുക്കാം.</p>
 
           <form onSubmit={handleSubmit}>
             <div style={field}>
@@ -101,7 +100,7 @@ const RegisterForm = () => {
 
           <div id="contact" style={{ marginTop: 30, fontSize: 14, color: '#666' }}>
             <hr style={{ margin: '20px 0' }} />
-            <strong>Contact:</strong> +91 8714370285| Symphony Club, Onchiyam
+            <strong>Contact:</strong> +91 8714370285| Symphony Onchiyam 
           </div>
         </div>
       </div>
