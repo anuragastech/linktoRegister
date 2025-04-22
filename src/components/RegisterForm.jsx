@@ -118,7 +118,7 @@ const RegisterForm = () => {
             </div>
 
             <div style={field}>
-              <label>ഫോട്ടോ അപ്‌ലോഡ് (ഐച്ചാരിയാൽ)</label>
+              <label>ഫോട്ടോ അപ്‌ലോഡ് </label>
               <input name="photo" type="file" accept="image/*" onChange={handleChange} />
             </div>
 
