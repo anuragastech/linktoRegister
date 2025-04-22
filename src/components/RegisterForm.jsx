@@ -26,7 +26,11 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData();
-    Object.entries(formData).forEach(([key, val]) => data.append(key, val));
+
+    Object.entries(formData).forEach(([key, val]) => {
+      if (key === 'photo' && val === null) return; // Skip if photo not uploaded
+      data.append(key, val);
+    });
 
     try {
       await axios.post('https://linktoregisterbackend.onrender.com/register', data);
@@ -48,16 +52,17 @@ const RegisterForm = () => {
           <Banner />
         </div>
         <div style={styles.formWrapper}>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
-  <img
-    src="https://res.cloudinary.com/dd6qdgpfr/image/upload/v1745303732/logosimphony_oregbf.png"
-    alt="Symphony Logo"
-    style={{ height: 40, marginRight: 10 }}
-  />
-  <h2 style={{ margin: 0, color: '#333' }}>Symphony Onchiyam 2025</h2>
-</div>
-<p id="details" style={{ marginBottom: 25, fontSize: 15, color: '#555' }}>
-താഴെയിരിക്കുന്ന രജിസ്ട്രേഷൻ ഫോം പൂരിപ്പിച്ച് സിംഫണി ഒഞ്ചിയം നടത്തുന്ന "ചിറകുകൾ"- ഏകദിന ക്യാമ്പിൽ പങ്കെടുക്കാം.</p>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
+            <img
+              src="https://res.cloudinary.com/dd6qdgpfr/image/upload/v1745303732/logosimphony_oregbf.png"
+              alt="Symphony Logo"
+              style={{ height: 40, marginRight: 10 }}
+            />
+            <h2 style={{ margin: 0, color: '#333' }}>Symphony Onchiyam 2025</h2>
+          </div>
+          <p id="details" style={{ marginBottom: 25, fontSize: 15, color: '#555' }}>
+            താഴെയിരിക്കുന്ന രജിസ്ട്രേഷൻ ഫോം പൂരിപ്പിച്ച് സിംഫണി ഒഞ്ചിയം നടത്തുന്ന "ചിറകുകൾ"- ഏകദിന ക്യാമ്പിൽ പങ്കെടുക്കാം.
+          </p>
 
           <form onSubmit={handleSubmit}>
             <div style={field}>
@@ -91,8 +96,8 @@ const RegisterForm = () => {
             </div>
 
             <div style={field}>
-              <label>ഫോട്ടോ അപ്‌ലോഡ്</label>
-              <input name="photo" type="file" accept="image/*" onChange={handleChange} required />
+              <label>ഫോട്ടോ അപ്‌ലോഡ് (ഓപ്ഷണൽ)</label>
+              <input name="photo" type="file" accept="image/*" onChange={handleChange} />
             </div>
 
             <button type="submit" style={button}>✅ Register Now</button>
@@ -100,7 +105,7 @@ const RegisterForm = () => {
 
           <div id="contact" style={{ marginTop: 30, fontSize: 14, color: '#666' }}>
             <hr style={{ margin: '20px 0' }} />
-            <strong>Contact:</strong> +91 8714370285| Symphony Onchiyam 
+            <strong>Contact:</strong> +91 8714370285 | Symphony Onchiyam
           </div>
         </div>
       </div>
@@ -120,8 +125,7 @@ const styles = {
   bannerWrapper: {
     width: '100%',
     maxWidth: '800px',
-    marinLeft:'60px',
-
+    marinLeft: '60px',
     marginRight: '10px',
   },
   formWrapper: {
