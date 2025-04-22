@@ -48,11 +48,18 @@ const RegisterForm = () => {
           <Banner />
         </div>
         <div style={styles.formWrapper}>
-          <h2 style={{ marginBottom: 10, color: '#333' }}>🎉 Symphony Onchiyam 2025</h2>
-          <p id="details" style={{ marginBottom: 25, fontSize: 15, color: '#555' }}>
-            താഴെയിരിക്കുന്ന രജിസ്ട്രേഷൻ ഫോം പൂരിപ്പിച്ച് Symphony Onchiyam പരിപാടിയിൽ പങ്കെടുക്കാം.
-            പങ്കെടുക്കുന്നവർക്ക് സർട്ടിഫിക്കറ്റുകൾ, പുരസ്കാരങ്ങൾ എന്നിവ നൽകുന്നതാണ്.
-          </p>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
+  <img
+    src="https://res.cloudinary.com/dd6qdgpfr/image/upload/v1745303732/logosimphony_oregbf.png"
+    alt="Symphony Logo"
+    style={{ height: 40, marginRight: 10 }}
+  />
+  <h2 style={{ margin: 0, color: '#333' }}>Symphony Onchiyam 2025</h2>
+</div>
+<p id="details" style={{ marginBottom: 25, fontSize: 15, color: '#555' }}>
+  താഴെയിരിക്കുന്ന രജിസ്ട്രേഷൻ ഫോം പൂരിപ്പിച്ച് സിംഫണി കലാസാംസ്കാരിക വേദി നടത്തുന്ന ചിറകുകൾ ഏകദിന ക്യാമ്പിൽ പങ്കെടുക്കാം.
+</p>
+
           <form onSubmit={handleSubmit}>
             <div style={field}>
               <label>കുട്ടിയുടെ പേര്</label>
@@ -94,7 +101,7 @@ const RegisterForm = () => {
 
           <div id="contact" style={{ marginTop: 30, fontSize: 14, color: '#666' }}>
             <hr style={{ margin: '20px 0' }} />
-            <strong>Contact:</strong> +91 98765 43210 | Symphony Club, Onchiyam
+            <strong>Contact:</strong> +91 8714370285| Symphony Club, Onchiyam
           </div>
         </div>
       </div>
