@@ -147,7 +147,7 @@ const styles = {
   bannerWrapper: {
     width: '100%',
     maxWidth: '800px',
-    marginLeft: '60px',
+    marginLeft: '25px',
     marginRight: '10px',
   },
   formWrapper: {
