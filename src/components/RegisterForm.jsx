@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Header from './header'; // Adjust path as needed
+import Header from './header';
 import Banner from './banner';
 
 const RegisterForm = () => {
@@ -18,6 +18,9 @@ const RegisterForm = () => {
     const { name, value, files } = e.target;
     if (name === 'photo') {
       setFormData({ ...formData, photo: files[0] });
+    } else if (name === 'phone') {
+      const onlyNums = value.replace(/\D/g, '');
+      setFormData({ ...formData, phone: onlyNums });
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -26,10 +29,10 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData();
-
     Object.entries(formData).forEach(([key, val]) => {
-      if (key === 'photo' && val === null) return; // Skip if photo not uploaded
-      data.append(key, val);
+      if (val !== null && val !== '') {
+        data.append(key, val);
+      }
     });
 
     try {
@@ -82,7 +85,17 @@ const RegisterForm = () => {
 
             <div style={field}>
               <label>ക്ലാസ്സ്</label>
-              <input name="studentClass" value={formData.studentClass} onChange={handleChange} required style={input} />
+              <input
+                name="studentClass"
+                type="number"
+                min="1"
+                max="12"
+                value={formData.studentClass}
+                onChange={handleChange}
+                required
+                style={input}
+                placeholder="1 to 12"
+              />
             </div>
 
             <div style={field}>
@@ -92,11 +105,20 @@ const RegisterForm = () => {
 
             <div style={field}>
               <label>ഫോൺ നമ്പർ</label>
-              <input name="phone" value={formData.phone} onChange={handleChange} required style={input} />
+              <input
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                maxLength="10"
+                required
+                style={input}
+                placeholder="10-digit phone number"
+              />
             </div>
 
             <div style={field}>
-              <label>ഫോട്ടോ അപ്‌ലോഡ് (ഓപ്ഷണൽ)</label>
+              <label>ഫോട്ടോ അപ്‌ലോഡ് (ഐച്ചാരിയാൽ)</label>
               <input name="photo" type="file" accept="image/*" onChange={handleChange} />
             </div>
 
@@ -105,7 +127,7 @@ const RegisterForm = () => {
 
           <div id="contact" style={{ marginTop: 30, fontSize: 14, color: '#666' }}>
             <hr style={{ margin: '20px 0' }} />
-            <strong>Contact:</strong> +91 8714370285 | Symphony Onchiyam
+            <strong>Contact:</strong> +91 8714370285 | Symphony Onchiyam 
           </div>
         </div>
       </div>
@@ -125,7 +147,7 @@ const styles = {
   bannerWrapper: {
     width: '100%',
     maxWidth: '800px',
-    marinLeft: '60px',
+    marginLeft: '60px',
     marginRight: '10px',
   },
   formWrapper: {
