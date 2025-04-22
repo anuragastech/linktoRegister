@@ -44,11 +44,11 @@ const AdminView = () => {
   return (
     <div style={styles.wrapper}>
       <div style={styles.card}>
-      <img
-  src="https://res.cloudinary.com/dd6qdgpfr/image/upload/v1744960378/photo_2025-04-18_12-42-16_felngi.jpg"
-  alt="Banner"
-  style={styles.banner}
-/>
+        <img
+          src="https://res.cloudinary.com/dd6qdgpfr/image/upload/v1744960378/photo_2025-04-18_12-42-16_felngi.jpg"
+          alt="Banner"
+          style={styles.banner}
+        />
 
         <h2 style={styles.title}>📋 Symphony Onchiyam - രജിസ്ട്രേഷൻ ലിസ്റ്റ്</h2>
 
@@ -85,9 +85,10 @@ const AdminView = () => {
                   <td>{reg.phone}</td>
                   <td>
                     <img
-                      src={`http://localhost:5000/uploads/${reg.photo}`}
+                      src={`https://linktoregisterbackend.onrender.com/uploads/${reg.photo}`}
                       alt="Photo"
                       style={styles.image}
+                      onError={(e) => e.target.style.display = 'none'}
                     />
                   </td>
                 </tr>
@@ -145,10 +146,9 @@ const styles = {
     borderRadius: '12px',
     marginBottom: '20px',
     objectFit: 'cover',
-    height: '250px', // Add a fixed height!
+    height: '250px',
     display: 'block',
-  }
-  ,
+  },
   theadRow: {
     backgroundColor: '#004aad',
     color: 'white',
