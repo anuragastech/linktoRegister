@@ -10,7 +10,7 @@ const AdminView = () => {
   const tableRef = useRef(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/registrations')
+    axios.get('https://linktoregisterbackend.onrender.com/registrations')
       .then(response => setRegistrations(response.data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);

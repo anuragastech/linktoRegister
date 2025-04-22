@@ -29,7 +29,7 @@ const RegisterForm = () => {
     Object.entries(formData).forEach(([key, val]) => data.append(key, val));
 
     try {
-      await axios.post('http://localhost:5000/register', data);
+      await axios.post('https://linktoregisterbackend.onrender.com/register', data);
       alert('Registration successful!');
       setFormData({
         name: '', house: '', age: '', studentClass: '',
