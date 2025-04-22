@@ -8,7 +8,7 @@ const Banner = () => {
         alt="Banner"
         style={styles.banner}
       />
-      <h2 style={styles.title}>📋 Symphony Onchiyam - രജിസ്ട്രേഷൻ ലിസ്റ്റ്</h2>
+      <h2 style={styles.title}>📋 Symphony Onchiyam - രജിസ്ട്രേഷൻ ഫോം</h2>
     </div>
   );
 };
