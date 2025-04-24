@@ -14,6 +14,8 @@ const RegisterForm = () => {
     photo: null,
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === 'photo') {
@@ -28,6 +30,9 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return; // prevent multiple clicks
+    setLoading(true);
+
     const data = new FormData();
     Object.entries(formData).forEach(([key, val]) => {
       if (val !== null && val !== '') {
@@ -44,6 +49,8 @@ const RegisterForm = () => {
       });
     } catch (err) {
       alert('Something went wrong');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -122,7 +129,9 @@ const RegisterForm = () => {
               <input name="photo" type="file" accept="image/*" onChange={handleChange} />
             </div>
 
-            <button type="submit" style={button}>✅ Register Now</button>
+            <button type="submit" style={{ ...button, opacity: loading ? 0.6 : 1 }} disabled={loading}>
+              {loading ? '⏳ Registering...' : '✅ Register Now'}
+            </button>
           </form>
 
           <div id="contact" style={{ marginTop: 30, fontSize: 14, color: '#666' }}>
